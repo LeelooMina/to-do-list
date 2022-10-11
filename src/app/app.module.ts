@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { ToDoListComponent } from './to-do-list/to-do-list.component';
 import { ToDoFormComponent } from './to-do-form/to-do-form.component';
 import { ToDoComponent } from './to-do-list/to-do/to-do.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ToDoComponent } from './to-do-list/to-do/to-do.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
