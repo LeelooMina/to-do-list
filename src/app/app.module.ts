@@ -9,13 +9,14 @@ import { ToDoFormComponent } from './to-do-form/to-do-form.component';
 import { ToDoComponent } from './to-do-list/to-do/to-do.component';
 import { AppRoutingModule } from './app-routing.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ToDoListComponent,
     ToDoFormComponent,
-    ToDoComponent
+    ToDoComponent,
   ],
   imports: [
     BrowserModule,

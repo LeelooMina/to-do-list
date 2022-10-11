@@ -2,18 +2,18 @@
   <div class="col-6">
     <div *ngIf="toDoList.length != 0; else noToDo">
       <div *ngFor="let todo of toDoList; let i = index">
-        <div class="card moreSpace" style="width: 18rem">
-          <div class="card-body">
-            <app-to-do class="card-text" [toDoCurrent]="todo"></app-to-do>
-            <button class="btn btn-danger" (click)="toDoService.removeToDo(i)">
-              Done
-            </button>
-          </div>
-        </div>
+        <app-to-do
+          class="card-text"
+          [toDoCurrent]="todo"
+          [toDoIndex]="i"
+        ></app-to-do>
       </div>
     </div>
     <ng-template #noToDo>
-      <p class="moreSpace" [ngStyle]="{'font-style': 'italic'}">Nothing here..</p></ng-template>
+      <p class="moreSpace" [ngStyle]="{ 'font-style': 'italic' }">
+        Nothing here..
+      </p></ng-template
+    >
   </div>
 
   <div class="col-6">

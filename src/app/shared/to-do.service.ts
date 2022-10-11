@@ -31,6 +31,11 @@ export class ToDoService {
     this.toDoListChanged.emit(this.getToDo());
   }
 
+  editToDo(index: number){
+    this.toDoList.splice(index, 1);
+    this.toDoListChanged.emit(this.getToDo());
+  }
+
   addToDo(todo: ToDo){
     if(todo.action != "Got something to do?" && todo.action != ""){
     this.toDoList.push(todo);
