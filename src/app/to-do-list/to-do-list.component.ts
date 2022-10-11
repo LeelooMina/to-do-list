@@ -11,6 +11,8 @@ export class ToDoListComponent implements OnInit {
 
   toDoList: ToDo[] = [
   ];
+  rLink = '/todos/add';
+  btnName = "Add more tasks"
 
   @Output() toDoCurrent = new EventEmitter<string>();
 
@@ -22,6 +24,17 @@ export class ToDoListComponent implements OnInit {
     this.toDoService.toDoListChanged.subscribe((todos) => {
       this.toDoList = todos;
     })
+  }
+
+  changeButton(){
+    if(this.rLink === '/todos/add'){
+      this.rLink = '/todos';
+      this.btnName = 'Stop adding tasks';
+    } else {
+      this.rLink = '/todos/add';
+      this.btnName = "Add more tasks";
+    }
+
   }
 
 }
