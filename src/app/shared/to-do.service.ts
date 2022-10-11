@@ -32,8 +32,11 @@ export class ToDoService {
   }
 
   addToDo(todo: ToDo){
+    if(todo.action != "Got something to do?" && todo.action != ""){
     this.toDoList.push(todo);
-    this.toDoListChanged.emit(this.getToDo());
+    this.toDoListChanged.emit(this.getToDo())
+    }
+
   }
 
   constructor() { }

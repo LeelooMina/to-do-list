@@ -1,1 +1,1 @@
-<div class="col-6"><input value="What do you need to do?" [(ngModel)]="inputToDo.action"> <button (click)="toDoService.addToDo(inputToDo)">Add</button></div>
+<input [(ngModel)]="inputToDo.action" (click)="clearTextBox()"> <button class="btn btn-success moreSpace" (click)="toDoService.addToDo(inputToDo); resetDefaultText()">Add</button>

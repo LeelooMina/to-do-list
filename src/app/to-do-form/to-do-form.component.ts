@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { ToDoService } from '../shared/to-do.service';
 import { ToDo } from '../shared/todo.model';
 
@@ -8,13 +8,31 @@ import { ToDo } from '../shared/todo.model';
   styleUrls: ['./to-do-form.component.css']
 })
 export class ToDoFormComponent implements OnInit {
+
+  defaultTxValue = "Got something to do?"
+
   inputToDo: ToDo = {
-    action: ""
+    action: this.defaultTxValue
   };
 
-  constructor(public toDoService: ToDoService) { }
+
+
+  constructor(public toDoService: ToDoService, private elementRef: ElementRef) { }
 
   ngOnInit(): void {
+  }
+
+  clearTextBox(){
+
+    this.inputToDo.action = "";
+
+  }
+
+
+  resetDefaultText(){
+    this.inputToDo = {
+      action: this.defaultTxValue
+    }
   }
 
 }

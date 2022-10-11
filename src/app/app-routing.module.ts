@@ -14,7 +14,14 @@ const routes: Routes = [
       }
 
     ]
+  },
+
+    {
+      path: '',
+      redirectTo: 'todos',
+      pathMatch: 'full'
     }
+
 
 ];
 

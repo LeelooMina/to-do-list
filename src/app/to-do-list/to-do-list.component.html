@@ -1,4 +1,23 @@
-<div *ngFor="let todo of toDoList; let i = index">
-  <app-to-do [toDoCurrent]="todo"></app-to-do>
-  <button class="btn btn-danger" (click)="toDoService.removeToDo(i)">Done</button>
+
+  <div class="row mt-4">
+    <div class="col-6">
+      <div *ngFor="let todo of toDoList; let i = index">
+        <div class="card moreSpace" style="width: 18rem;">
+          <div class="card-body">
+            <app-to-do class="card-text" [toDoCurrent]="todo"></app-to-do>
+          <button class="btn btn-danger" (click)="toDoService.removeToDo(i)">Done</button>
+      </div>
+    </div>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <router-outlet></router-outlet>
+    </div>
   </div>
+
+
+  <div class="row mt-2 moreSpace">
+    <button class="col-2 btn btn-primary" routerLink='{{ rLink }}'  (click)="changeButton()">{{ btnName }}</button>
+  </div>
+
