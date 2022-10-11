@@ -1,16 +1,26 @@
 import { EventEmitter, Injectable } from '@angular/core';
+import { ToDo } from './todo.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ToDoService {
-  private toDoList: string[] = [
-    "La la",
-    "tada",
-    "go do stuff"
+  private toDoList: ToDo[] = [
+   {
+    action: "Wash dishes",
+   },
+   {
+    action: "Mop floor",
+   },
+   {
+    action:  "Mail letter"
+   },
+   {
+    action:  "Buy milk"
+   }
   ]
 
-  toDoListChanged = new EventEmitter<string[]>;
+  toDoListChanged = new EventEmitter<ToDo[]>;
 
   getToDo() {
     return this.toDoList.slice();
@@ -21,7 +31,7 @@ export class ToDoService {
     this.toDoListChanged.emit(this.getToDo());
   }
 
-  addToDo(todo: string){
+  addToDo(todo: ToDo){
     this.toDoList.push(todo);
     this.toDoListChanged.emit(this.getToDo());
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ToDoService } from '../to-do.service';
+import { ToDoService } from '../shared/to-do.service';
+import { ToDo } from '../shared/todo.model';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,7 @@ import { ToDoService } from '../to-do.service';
 })
 export class HeaderComponent implements OnInit {
 
-  toDoList: string[] = [];
+  toDoList: ToDo[] = [];
 
 
   constructor(private toDoService: ToDoService) { }

@@ -1,3 +1,4 @@
-<div *ngFor="let todo of toDoList">
+<div *ngFor="let todo of toDoList; let i = index">
   <app-to-do [toDoCurrent]="todo"></app-to-do>
+  <button class="btn btn-danger" (click)="toDoService.removeToDo(i)">Done</button>
   </div>

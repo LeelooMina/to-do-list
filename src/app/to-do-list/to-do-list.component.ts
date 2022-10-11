@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { ToDoService } from '../to-do.service';
+import { ToDoService } from '../shared/to-do.service';
+import { ToDo } from '../shared/todo.model';
 
 @Component({
   selector: 'app-to-do-list',
@@ -8,12 +9,13 @@ import { ToDoService } from '../to-do.service';
 })
 export class ToDoListComponent implements OnInit {
 
-  toDoList: string[] = [];
+  toDoList: ToDo[] = [
+  ];
 
   @Output() toDoCurrent = new EventEmitter<string>();
 
 
-  constructor(private toDoService: ToDoService) { }
+  constructor(public toDoService: ToDoService) { }
 
   ngOnInit(): void {
     this.toDoList = this.toDoService.getToDo();

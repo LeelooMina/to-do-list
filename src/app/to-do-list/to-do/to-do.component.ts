@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ToDo } from 'src/app/shared/todo.model';
+
 
 @Component({
   selector: 'app-to-do',
@@ -7,7 +9,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ToDoComponent implements OnInit {
 
-  @Input() toDoCurrent: string = "";
+  @Input() toDoCurrent: ToDo = {
+    action: ''
+  };
 
   constructor() { }
 
