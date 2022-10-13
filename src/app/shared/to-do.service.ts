@@ -20,6 +20,12 @@ export class ToDoService {
    }
   ]
 
+  private toDoDone: ToDo[] = [
+    {
+      action: " "
+    }
+  ]
+
   toDoListChanged = new EventEmitter<ToDo[]>;
 
   getToDo() {
@@ -28,6 +34,7 @@ export class ToDoService {
 
   removeToDo(index: number){
     this.toDoList.splice(index, 1);
+
     this.toDoListChanged.emit(this.getToDo());
   }
 
@@ -35,6 +42,8 @@ export class ToDoService {
     this.toDoList.splice(index, 1);
     this.toDoListChanged.emit(this.getToDo());
   }
+
+  finishToDo()
 
   addToDo(todo: ToDo){
     if(todo.action != "Got something to do?" && todo.action != ""){
