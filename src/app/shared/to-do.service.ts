@@ -43,7 +43,11 @@ export class ToDoService {
     this.toDoListChanged.emit(this.getToDo());
   }
 
-  finishToDo()
+  finishToDo(index: number){
+    this.toDoDone.push(this.toDoList[index]);
+    this.toDoList.splice(index, 1);
+    this.toDoListChanged.emit(this.getToDo());
+  }
 
   addToDo(todo: ToDo){
     if(todo.action != "Got something to do?" && todo.action != ""){
