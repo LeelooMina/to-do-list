@@ -47,8 +47,9 @@ export class ToDoService {
     this.toDoListChanged.next(this.getToDo());
   }
 
-  editToDo(index: number){
-    this.toDoList.splice(index, 1);
+  editToDo(index: number, action: string){
+
+    this.toDoList[index].action = action;
     this.toDoListChanged.next(this.getToDo());
   }
 
