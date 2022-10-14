@@ -34,6 +34,23 @@
 <div><div>
 
 <p>Finished tasks:</p>
+<div *ngIf="toDoListDone.length != 0; else noToDo">
+  <div *ngFor="let todo of toDoListDone; let i = index">
+
+
+   <p>{{ todo.action }}</p>
+
+  <app-to-do
+      class="card-text"
+      [toDoCurrent]="todo"
+      [toDoIndex]="i"
+    ></app-to-do>
+  </div>
+</div>
+<ng-template #noToDo>
+  <p class="moreSpace" [ngStyle]="{ 'font-style': 'italic' }">
+    You haven't done anything yet!
+  </p></ng-template>
 
 
 </div></div>

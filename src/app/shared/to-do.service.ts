@@ -1,4 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { ToDo } from './todo.model';
 
 @Injectable({
@@ -8,51 +9,63 @@ export class ToDoService {
   private toDoList: ToDo[] = [
    {
     action: "Wash dishes",
+    completed: false
    },
    {
     action: "Mop floor",
+    completed: false
    },
    {
-    action:  "Mail letter"
+    action:  "Mail letter",
+    completed: false
+
    },
    {
-    action:  "Buy milk"
+    action:  "Buy milk",
+    completed: false
    }
   ]
 
-  private toDoDone: ToDo[] = [
-    {
-      action: " "
-    }
-  ]
 
-  toDoListChanged = new EventEmitter<ToDo[]>;
+
+  toDoListChanged = new Subject<ToDo[]>;
+
+  toDoDoneChanged = new Subject<ToDo[]>;
 
   getToDo() {
     return this.toDoList.slice();
   }
 
+  getDoneToDos(){
+    return this.toDoDone.slice();
+
+  }
+
   removeToDo(index: number){
     this.toDoList.splice(index, 1);
 
-    this.toDoListChanged.emit(this.getToDo());
+    this.toDoListChanged.next(this.getToDo());
   }
 
   editToDo(index: number){
     this.toDoList.splice(index, 1);
-    this.toDoListChanged.emit(this.getToDo());
+    this.toDoListChanged.next(this.getToDo());
   }
 
   finishToDo(index: number){
-    this.toDoDone.push(this.toDoList[index]);
     this.toDoList.splice(index, 1);
-    this.toDoListChanged.emit(this.getToDo());
+
+    // this.toDoDone.push(todo);
+    // this.toDoList.splice(index, 1);
+    this.toDoListChanged.next(this.getToDo());
+    this.toDoDoneChanged.next(this.getDoneToDos());
+
   }
 
   addToDo(todo: ToDo){
     if(todo.action != "Got something to do?" && todo.action != ""){
     this.toDoList.push(todo);
-    this.toDoListChanged.emit(this.getToDo())
+    this.toDoListChanged.next(this.getToDo())
     }
 
   }
