@@ -14,7 +14,8 @@ export class ToDoComponent implements OnInit {
   @Input() toDoIndex!: number;
 
   @Input() toDoCurrent: ToDo = {
-    action: ''
+    action: '',
+    completed: false
   };
 
   constructor(public toDoService: ToDoService) { }

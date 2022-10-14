@@ -12,7 +12,8 @@ export class ToDoFormComponent implements OnInit {
   defaultTxValue = "Got something to do?"
 
   inputToDo: ToDo = {
-    action: this.defaultTxValue
+    action: this.defaultTxValue,
+    completed: false
   };
 
 
@@ -31,7 +32,8 @@ export class ToDoFormComponent implements OnInit {
 
   resetDefaultText(){
     this.inputToDo = {
-      action: this.defaultTxValue
+      action: this.defaultTxValue,
+      completed: false
     }
   }
 

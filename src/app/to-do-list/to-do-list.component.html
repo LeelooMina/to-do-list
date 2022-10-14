@@ -2,11 +2,13 @@
   <div class="col-6">
     <div *ngIf="toDoList.length != 0; else noToDo">
       <div *ngFor="let todo of toDoList; let i = index">
+        <div *ngIf="todo.completed != true">
         <app-to-do
           class="card-text"
           [toDoCurrent]="todo"
           [toDoIndex]="i"
         ></app-to-do>
+        </div>
       </div>
     </div>
     <ng-template #noToDo>
@@ -34,17 +36,23 @@
 <div><div>
 
 <p>Finished tasks:</p>
-<div *ngIf="toDoListDone.length != 0; else noToDo">
-  <div *ngFor="let todo of toDoListDone; let i = index">
 
+  <div *ngFor="let todo of toDoList; let i = index">
+    <div *ngIf="todo.completed === true">
+      <!-- <app-to-do
+          class="card-text"
+          [toDoCurrent]="todo"
+          [toDoIndex]="i"
+        ></app-to-do> -->
+      <p [ngStyle]="{ 'font-style': 'italic' }">{{ todo.action }}</p>
+    </div>
 
-   <p>{{ todo.action }}</p>
-
+<!--
   <app-to-do
       class="card-text"
       [toDoCurrent]="todo"
       [toDoIndex]="i"
-    ></app-to-do>
+    ></app-to-do> -->
   </div>
 </div>
 <ng-template #noToDo>
@@ -53,6 +61,6 @@
   </p></ng-template>
 
 
-</div></div>
+</div>
 
 <!-- Finished tasks -->

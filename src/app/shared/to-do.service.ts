@@ -36,10 +36,10 @@ export class ToDoService {
     return this.toDoList.slice();
   }
 
-  getDoneToDos(){
-    return this.toDoDone.slice();
+  // getDoneToDos(){
+  //   return this.toDoDone.slice();
 
-  }
+  // }
 
   removeToDo(index: number){
     this.toDoList.splice(index, 1);
@@ -53,12 +53,11 @@ export class ToDoService {
   }
 
   finishToDo(index: number){
-    this.toDoList.splice(index, 1);
+    this.toDoList[index].completed = true;
 
     // this.toDoDone.push(todo);
     // this.toDoList.splice(index, 1);
     this.toDoListChanged.next(this.getToDo());
-    this.toDoDoneChanged.next(this.getDoneToDos());
 
   }
 

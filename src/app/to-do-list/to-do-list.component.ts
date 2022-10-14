@@ -12,9 +12,7 @@ export class ToDoListComponent implements OnInit {
   toDoList: ToDo[] = [
   ];
 
-  toDoListDone: ToDo[] = [
-
-  ]
+  
   rLink = '/todos/add';
   btnName = "Add more tasks"
 
@@ -28,11 +26,11 @@ export class ToDoListComponent implements OnInit {
     this.toDoService.toDoListChanged.subscribe((todos) => {
       this.toDoList = todos;
     })
-    this.toDoListDone = this.toDoService.getDoneToDos();
-    this.toDoService.toDoDoneChanged.subscribe((todos) => {
-      this.toDoListDone = todos;
-      console.log(this.toDoListDone);
-    })
+    // this.toDoListDone = this.toDoService.getDoneToDos();
+    // this.toDoService.toDoDoneChanged.subscribe((todos) => {
+    //   this.toDoListDone = todos;
+    //   console.log(this.toDoListDone);
+    // })
     // console.log(this.toDoListDone);
   }
 
