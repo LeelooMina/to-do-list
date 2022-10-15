@@ -39,6 +39,10 @@ export class ToDoService {
     return this.toDoList.filter(todo => todo.completed === true)
   }
 
+  isDone2(){
+    return this.toDoList.filter(todo => todo.completed === false)
+  }
+
   removeToDo(index: number){
     this.toDoList.splice(index, 1);
 
@@ -53,6 +57,15 @@ export class ToDoService {
 
   finishToDo(index: number){
     this.toDoList[index].completed = true;
+
+    // this.toDoDone.push(todo);
+    // this.toDoList.splice(index, 1);
+    this.toDoListChanged.next(this.getToDo());
+
+  }
+
+  unFinishToDo(index: number){
+    this.toDoList[index].completed = false;
 
     // this.toDoDone.push(todo);
     // this.toDoList.splice(index, 1);
