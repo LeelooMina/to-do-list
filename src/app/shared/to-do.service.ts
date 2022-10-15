@@ -30,14 +30,13 @@ export class ToDoService {
 
   toDoListChanged = new Subject<ToDo[]>;
 
-  toDoDoneChanged = new Subject<ToDo[]>;
 
   getToDo() {
     return this.toDoList.slice();
   }
 
   isDone(){
-    return this.toDoList.filter(todo => todo.completed === false)
+    return this.toDoList.filter(todo => todo.completed === true)
   }
 
   removeToDo(index: number){

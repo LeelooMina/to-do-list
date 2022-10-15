@@ -6,6 +6,8 @@
    <p >{{ todo.action }}</p>
   </div>
 
+  {{ toDoService.isDone().length }}
+
 
 <!-- <app-to-do
     class="card-text"
@@ -13,7 +15,7 @@
     [toDoIndex]="i"
   ></app-to-do> -->
 </div>
-<ng-template #noToDo>
+<div *ngIf="toDoService.isDone().length === 0">
 <p class="moreSpace" [ngStyle]="{ 'font-style': 'italic' }">
   You haven't done anything yet!
-</p></ng-template>
+</p></div>
