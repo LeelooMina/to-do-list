@@ -36,10 +36,9 @@ export class ToDoService {
     return this.toDoList.slice();
   }
 
-  // getDoneToDos(){
-  //   return this.toDoDone.slice();
-
-  // }
+  isDone(){
+    return this.toDoList.filter(todo => todo.completed === false)
+  }
 
   removeToDo(index: number){
     this.toDoList.splice(index, 1);

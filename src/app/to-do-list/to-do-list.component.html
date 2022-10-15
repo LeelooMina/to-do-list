@@ -1,6 +1,6 @@
-<div class="row mt-4">
-  <div class="col-6">
-    <div *ngIf="toDoList.length != 0; else noToDo">
+<div class="container"><div class="row align-items-start">
+  <div class="col">
+    <div *ngIf="toDoService.isDone().length != 0; else noToDo">
       <div *ngFor="let todo of toDoList; let i = index">
         <div *ngIf="todo.completed != true">
         <app-to-do
@@ -18,7 +18,7 @@
     >
   </div>
 
-  <div class="col-6">
+  <div class="col">
     <router-outlet></router-outlet>
   </div>
 </div>
@@ -30,37 +30,18 @@
     (click)="changeButton()">
     {{ btnName }}
   </button>
+  <!-- <a [routerLink]="['/todos'{donelink:done}]">Show finished</a>
 
-</div>
+</div></div>
 
-<div><div>
+<router-outlet name="donelink"></router-outlet> -->
 
-<p>Finished tasks:</p>
+<!-- <div><div>
 
-  <div *ngFor="let todo of toDoList; let i = index">
-    <div *ngIf="todo.completed === true">
-      <!-- <app-to-do
-          class="card-text"
-          [toDoCurrent]="todo"
-          [toDoIndex]="i"
-        ></app-to-do> -->
-      <p [ngStyle]="{ 'font-style': 'italic' }">{{ todo.action }}</p>
-    </div>
+<router-outlet></router-outlet>
 
-<!--
-  <app-to-do
-      class="card-text"
-      [toDoCurrent]="todo"
-      [toDoIndex]="i"
-    ></app-to-do> -->
-  </div>
-</div>
-<ng-template #noToDo>
-  <p class="moreSpace" [ngStyle]="{ 'font-style': 'italic' }">
-    You haven't done anything yet!
-  </p></ng-template>
-
-
-</div>
+</div> -->
 
 <!-- Finished tasks -->
+
+<app-to-do-done></app-to-do-done>

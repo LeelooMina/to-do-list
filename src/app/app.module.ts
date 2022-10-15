@@ -8,7 +8,8 @@ import { ToDoListComponent } from './to-do-list/to-do-list.component';
 import { ToDoFormComponent } from './to-do-form/to-do-form.component';
 import { ToDoComponent } from './to-do-list/to-do/to-do.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ToDoEditComponent } from './to-do-list/to-do-edit/to-do-edit.component';
+import { ToDoDoneComponent } from './to-do-list/to-do-done/to-do-done.component';
+
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import { ToDoEditComponent } from './to-do-list/to-do-edit/to-do-edit.component'
     ToDoListComponent,
     ToDoFormComponent,
     ToDoComponent,
-    ToDoEditComponent,
+    ToDoDoneComponent,
   ],
   imports: [
     BrowserModule,

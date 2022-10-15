@@ -12,7 +12,7 @@ export class ToDoListComponent implements OnInit {
   toDoList: ToDo[] = [
   ];
 
-  
+
   rLink = '/todos/add';
   btnName = "Add more tasks"
 
@@ -37,7 +37,7 @@ export class ToDoListComponent implements OnInit {
   changeButton(){
     if(this.rLink === '/todos/add'){
       this.rLink = '/todos';
-      this.btnName = 'Stop adding tasks';
+      this.btnName = 'Stop adding';
     } else {
       this.rLink = '/todos/add';
       this.btnName = "Add more tasks";

@@ -20,6 +20,13 @@ export class ToDoComponent implements OnInit {
 
   constructor(public toDoService: ToDoService) { }
 
+  clickPrompt(){
+    let action = window.prompt("Edit your task:", this.toDoCurrent.action);
+    if(action != null){
+    this.toDoService.editToDo(this.toDoIndex, action)
+    }
+  }
+
   ngOnInit(): void {
   }
 

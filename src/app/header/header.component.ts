@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
   toDoList: ToDo[] = [];
 
 
-  constructor(private toDoService: ToDoService) { }
+  constructor(public toDoService: ToDoService) { }
 
   ngOnInit(): void {
     this.toDoList = this.toDoService.getToDo();

@@ -1,0 +1,20 @@
+
+<p>Finished tasks:</p>
+
+<div *ngFor="let todo of toDoList; let i = index">
+  <div *ngIf="todo.completed === true">
+
+     <p >{{ todo.action }}</p>
+  </div>
+
+
+<!-- <app-to-do
+    class="card-text"
+    [toDoCurrent]="todo"
+    [toDoIndex]="i"
+  ></app-to-do> -->
+</div>
+<ng-template #noToDo>
+<p class="moreSpace" [ngStyle]="{ 'font-style': 'italic' }">
+  You haven't done anything yet!
+</p></ng-template>

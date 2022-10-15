@@ -6,7 +6,7 @@
 
 
 
-  <p *ngIf="toDoList.length > 0; else noneLeft">{{ toDoList.length }} left to do!</p>
+  <p *ngIf="toDoService.isDone().length > 0; else noneLeft">{{ toDoService.isDone().length }} left to do!</p>
   <ng-template #noneLeft><p>All done!</p></ng-template>
 
 
